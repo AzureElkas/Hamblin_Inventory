@@ -31,7 +31,6 @@ namespace Hamblin_Inventory
         }
         public string ListItems()
         {
-            //return ShippingArray[itemNumber].Product;
             int Bikes = 0;
             int Crackers = 0;
             int Gloves = 0;
