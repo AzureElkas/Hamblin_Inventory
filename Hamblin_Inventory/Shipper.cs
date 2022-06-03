@@ -31,11 +31,11 @@ namespace Hamblin_Inventory
         }
         public string ListItems()
         {
+            string itemList = "Shipment manifest: \n";
             int Bikes = 0;
             int Crackers = 0;
             int Gloves = 0;
             int Mowers = 0;
-            //This feels messy, improvement?
             for (int i = 0; i < arrayCounter; i++)
             {
                 string product = ShippingArray[i].Product;
@@ -48,11 +48,21 @@ namespace Hamblin_Inventory
                 else if (product == "Baseball Glove")
                     Gloves++;
             }
-            return "Shipment manifest \n" +
-                Bikes + " Bicycles\n" +
-                Gloves + " Baseball Gloves\n" +
-                Mowers + " Lawn Mowers\n" +
-                Crackers + " Crackers\n";
+            if (Bikes > 1)
+                itemList += Bikes + " Bicycles \n";
+            else if (Bikes == 1)
+                itemList += Bikes + " Bicycle \n";
+            if (Gloves > 1)
+                itemList += Gloves + " Baseball Gloves \n";
+            else if (Gloves == 1)
+                itemList += Gloves + " Baseball Glove \n";
+            if (Mowers > 1)
+                itemList += Mowers + " Lawn Mowers \n";
+            else if (Mowers == 1)
+                itemList += Mowers + " Lawn Mower \n";
+            if (Crackers > 0)
+                itemList += Crackers + " Crackers \n";
+            return itemList;
         }
         public int GetArrayCounter()
         {
